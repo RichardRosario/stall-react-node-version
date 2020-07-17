@@ -1,0 +1,140 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+body {
+  font: 1.6rem Helvetica;
+  height: 100vh;
+  margin: 0;
+}
+:root {
+  --primaryColor: #d90429;
+  --secondPrimary: #ef233c;
+  --mainLight: #edf2f4;
+  --light2: #e0d7d7;
+  --mainDark: #203040;
+  --mainGrey: #8d99ae;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: var(--primaryColor);
+}
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr 5rem;
+  height: 100%;
+}
+.header {
+  grid-area: header;
+  background-color: var(--mainDark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+.brand a {
+  color: var(--mainLight);
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+.header-links a {
+  color: var(--mainLight);
+  text-decoration: none;
+}
+.header-links a:hover {
+  color: var(--primaryColor);
+}
+.main {
+  grid-area: main;
+}
+.footer {
+  grid-area: footer;
+  background-color: var(--mainDark);
+  color: var(--mainLight);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+/* home */
+.products {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.products li {
+  list-style-type: none;
+  flex: 0 1 34rem;
+  padding: 0;
+  margin: 1rem;
+  height: 50rem;
+  border-bottom: 0.1rem var(--secondPrimary) solid;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.product-name {
+  font-size: 2rem;
+  text-decoration: none;
+}
+.product-brand {
+  font-size: 1.2rem;
+  color: var(--mainDark);
+}
+.product-price {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.product-image {
+  max-width: 34rem;
+  max-height: 34rem;
+}
+.product-ratings {
+  margin-bottom: 1rem;
+}
+
+/* sidebar */
+.brand button {
+  font-size: 3rem;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--light2);
+  cursor: pointer;
+}
+.sidebar {
+  position: fixed;
+  transform: translateX(-30rem);
+  width: 30rem;
+  background-color: var(--mainLight);
+  height: 100%;
+}
+.open {
+  transform: translateX(0);
+}
+.close-btn {
+  border-radius: 50%;
+  border: 0.1rem black solid;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+  padding-top: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
