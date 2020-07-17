@@ -2,11 +2,11 @@
 
 ## My first attempt to create an ecommerce system from scratch...
 
-### Stall is an open source simple full-feature ecommerce created in javascript
+### Stall eCommerce is an open source simple full-feature ecommerce created in reactjs and nodejs. This will be consistently improved in the future to allow other developers to build modules and extensions.
 
-### Tasks
+### Tasks to cover:
 
-#### React Products Component
+#### Create React Products Component
 
       1. Create data.json {products:[{_id, title, ...}]
       2. Update App.js to import data.json
