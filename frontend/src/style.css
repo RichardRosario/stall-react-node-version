@@ -33,6 +33,7 @@ a:hover {
   grid-template-rows: 5rem 1fr 5rem;
   height: 100%;
 }
+/* header */
 .header {
   grid-area: header;
   background-color: var(--mainDark);
@@ -50,9 +51,10 @@ a:hover {
 .header-links a {
   color: var(--mainLight);
   text-decoration: none;
+  padding: 0.5rem;
 }
 .header-links a:hover {
-  color: var(--primaryColor);
+  color: var(--secondPrimary);
 }
 .main {
   grid-area: main;
@@ -121,6 +123,7 @@ a:hover {
   width: 30rem;
   background-color: var(--mainLight);
   height: 100%;
+  transition: var(--mainTransition);
 }
 .open {
   transform: translateX(0);
