@@ -15,6 +15,7 @@ function App() {
         <div className="brand">
           <button onClick={openMenu}>&#9776;</button>
           <a href="index.html">Stall</a>
+          <span>react-node version</span>
         </div>
         <div className="header-links">
           <a href="Cart">Cart</a>
