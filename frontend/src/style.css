@@ -7,6 +7,9 @@ body {
   height: 100vh;
   margin: 0;
 }
+#root {
+  height: 100%;
+}
 :root {
   --primaryColor: #d90429;
   --secondPrimary: #ef233c;
@@ -15,6 +18,7 @@ body {
   --mainDark: #203040;
   --mainGrey: #8d99ae;
   --mainSpacing: 0.1rem;
+  --bigSpacing: 1rem;
   --mainTransition: all 0.3s linear;
 }
 a {
@@ -48,6 +52,9 @@ a:hover {
   font-weight: bold;
   text-decoration: none;
 }
+.brand a:hover {
+  color: var(--secondPrimary);
+}
 .header-links a {
   color: var(--mainLight);
   text-decoration: none;
@@ -55,6 +62,9 @@ a:hover {
 }
 .header-links a:hover {
   color: var(--secondPrimary);
+}
+span.version {
+  color: var(--mainGrey);
 }
 .main {
   grid-area: main;
@@ -106,6 +116,9 @@ a:hover {
 .product-ratings {
   margin-bottom: 1rem;
 }
+.product-single {
+  padding: var(--bigSpacing);
+}
 
 /* sidebar */
 .brand button {
@@ -139,4 +152,55 @@ a:hover {
   position: absolute;
   right: 0.5rem;
   top: 0.5rem;
+}
+/* product details */
+.breadcrumb {
+  padding: var(--bigSpacing);
+}
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: var(--bigSpacing);
+}
+.details-image {
+  flex: 2 1 60rem;
+}
+.details-image img {
+  max-width: 60rem;
+  widows: 100%;
+}
+.details-info {
+  flex: 1 1 30rem;
+}
+.details-action {
+  flex: 1 1 30rem;
+  border: 0.1rem solid #808080;
+  background-color: #f0f0f0;
+  padding: var(--bigSpacing);
+}
+.datails-info ul,
+.details-action ul {
+  list-style: none;
+  padding: 0;
+}
+.datails-info li,
+.details-action li {
+  margin-bottom: 1rem;
+}
+
+.details-action ul li:last-child {
+  display: flex;
+  flex-direction: column;
+}
+.btn {
+  padding: var(--bigSpacing);
+  cursor: pointer;
+  border: solid #808080 0.1rem;
+  border-radius: 0.5rem;
+  background-color: #f5a819;
+}
+.btn:hover {
+  border: 0.1rem solid var(--mainGrey);
 }
