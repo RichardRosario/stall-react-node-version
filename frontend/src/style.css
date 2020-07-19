@@ -60,7 +60,6 @@ a:hover {
   grid-area: main;
 }
 .footer {
-  grid-area: footer;
   background-color: var(--mainDark);
   color: var(--mainLight);
   display: flex;

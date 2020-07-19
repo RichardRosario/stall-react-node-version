@@ -1,4 +1,5 @@
 import React from "react";
+import data from "./data";
 import "./style.css";
 
 function App() {
@@ -40,81 +41,25 @@ function App() {
       <main className="main">
         <div className="content">
           <ul className="products">
-            <li>
-              <div className="product">
-                <img
-                  className="product-image"
-                  src="./images/d1.jpg"
-                  alt="product"
-                />
-                <div className="product-name">
-                  <a href="product.html">Longsleeves</a>
+            {data.products.map((product) => (
+              <li key="">
+                <div className="product">
+                  <img
+                    className="product-image"
+                    src={product.image}
+                    alt="product"
+                  />
+                  <div className="product-name">
+                    <a href="product.html">{product.name}</a>
+                  </div>
+                  <div className="product-brand">{product.brand}</div>
+                  <div className="product-price">${product.price}</div>
+                  <div className="product-rating">
+                    {product.rating} Stars {product.reviews}
+                  </div>
                 </div>
-                <div className="product-brand">nike</div>
-                <div className="product-price">$23</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img
-                  className="product-image"
-                  src="./images/d1.jpg"
-                  alt="product"
-                />
-                <div className="product-name">
-                  <a href="product.html">Longsleeves</a>
-                </div>
-                <div className="product-brand">nike</div>
-                <div className="product-price">$23</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img
-                  className="product-image"
-                  src="./images/d1.jpg"
-                  alt="product"
-                />
-                <div className="product-name">
-                  <a href="product.html">Longsleeves</a>
-                </div>
-                <div className="product-brand">nike</div>
-                <div className="product-price">$23</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img
-                  className="product-image"
-                  src="./images/d1.jpg"
-                  alt="product"
-                />
-                <div className="product-name">
-                  <a href="product.html">Longsleeves</a>
-                </div>
-                <div className="product-brand">nike</div>
-                <div className="product-price">$23</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img
-                  className="product-image"
-                  src="./images/d1.jpg"
-                  alt="product"
-                />
-                <div className="product-name">
-                  <a href="product.html">Longsleeves</a>
-                </div>
-                <div className="product-brand">nike</div>
-                <div className="product-price">$23</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
+              </li>
+            ))}
           </ul>
         </div>
       </main>

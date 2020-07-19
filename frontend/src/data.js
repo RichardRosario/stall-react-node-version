@@ -1,0 +1,40 @@
+export default {
+  products: [
+    {
+      name: "Slim shirt",
+      category: "shirt",
+      image: "/images/d1.jpg",
+      price: 60,
+      brand: "nike",
+      rating: 4.5,
+      numReviews: 10,
+    },
+    {
+      name: "long sleeve shirt",
+      category: "shirt",
+      image: "/images/d1.jpg",
+      price: 64,
+      brand: "nike",
+      rating: 4.5,
+      numReviews: 10,
+    },
+    {
+      name: "t-shirt",
+      category: "shirt",
+      image: "/images/d1.jpg",
+      price: 45,
+      brand: "under armour",
+      rating: 4.5,
+      numReviews: 10,
+    },
+    {
+      name: "Slim pant",
+      category: "pants",
+      image: "/images/d1.jpg",
+      price: 65,
+      brand: "jag",
+      rating: 4.5,
+      numReviews: 10,
+    },
+  ],
+};
