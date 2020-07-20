@@ -25,7 +25,7 @@ function ProductScreen(props) {
               <h4>{product.name}</h4>
             </li>
             <li>
-              {product.rating} Stars({product.numReviews})
+              {product.rating} Stars ({product.numReviews} Reviews)
             </li>
             <li>${product.price}</li>
             <li>
@@ -36,7 +36,7 @@ function ProductScreen(props) {
         </div>
         <div className="details-action">
           <ul>
-            <li>Price: {product.price}</li>
+            <li>Price: ${product.price}</li>
             <li>Status: {product.status}</li>
             <li>
               Qty:
