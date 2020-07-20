@@ -23,3 +23,11 @@
       13. product-price {flex, space-between, center}
       14. div {p.price} flex: 1; align: center; size: 2rem
       15. button.button.primary Add To Cart
+
+#### Setup node backend and developement dependencies
+
+#### Fetching server data
+
+1. use react Hooks,
+2. useEffects()
+3. useState()

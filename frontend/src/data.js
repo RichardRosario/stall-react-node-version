@@ -8,6 +8,7 @@ export default {
       price: 60,
       brand: "nike",
       rating: 4.5,
+      status: "out of stock",
       numReviews: 10,
       desc:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, officiis!",
@@ -20,6 +21,7 @@ export default {
       price: 64,
       brand: "nike",
       rating: 4.5,
+      status: "sale",
       numReviews: 10,
       desc:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, officiis!",
@@ -32,6 +34,7 @@ export default {
       price: 45,
       brand: "under armour",
       rating: 4.5,
+      status: "sale",
       numReviews: 10,
       desc:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, officiis!",
@@ -44,6 +47,7 @@ export default {
       price: 65,
       brand: "jag",
       rating: 4.5,
+      status: "active",
       numReviews: 10,
       desc:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, officiis!",
