@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 function ProductScreen(props) {
   let prodId = props.match.params.id;
   const product = data.products.find(({ id }) => id === prodId);
-  console.log(`this is ${prodId}`);
-  console.log(product);
+  // console.log(`this is ${prodId}`);
+  // console.log(product);
   return (
     <div className="product-single">
       <div>
