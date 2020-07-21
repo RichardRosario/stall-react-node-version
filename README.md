@@ -31,3 +31,12 @@
 1. use react Hooks,
 2. useEffects()
 3. useState()
+
+#### Manage state
+
+1. useState()
+2. install redux
+3. create store
+4. create reducers and action
+5. remove axios from homeScreen.js and call it from productActions
+6. resolve warning issue about use React Hook useEffect missing dependency
