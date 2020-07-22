@@ -18,6 +18,11 @@ function ProductScreen(props) {
     };
   }, [dispatch, prodId]);
 
+  // handle add to cart
+  const handleAddToCart = () => {
+    props.history.push("/cart/" + prodId + "?qty=" + qty);
+  };
+
   return (
     <div className="product-single">
       <div>
@@ -54,7 +59,16 @@ function ProductScreen(props) {
           <div className="details-action">
             <ul>
               <li>Price: ${product.price}</li>
-              <li className="status">Status: {product.status}</li>
+              <li className="status">
+                Status:
+                {product.stockCount <= 0 ? (
+                  <span className="out-of-stock">Out of Stock</span>
+                ) : (
+                  <span className="inStock">
+                    {product.stockCount + " items in stock!"}
+                  </span>
+                )}
+              </li>
               <li>
                 Qty:
                 <select
@@ -64,12 +78,18 @@ function ProductScreen(props) {
                   }}
                 >
                   {[...Array(product.stockCount).keys()].map((x) => (
-                    <option value={x + 1}>{x + 1}</option>
+                    <option key={x + 1} value={x + 1}>
+                      {x + 1}
+                    </option>
                   ))}
                 </select>
               </li>
               <li>
-                <button className="btn">Add to cart</button>
+                {product.stockCount > 0 && (
+                  <button onClick={handleAddToCart} className="btn">
+                    Add to cart
+                  </button>
+                )}
               </li>
             </ul>
           </div>

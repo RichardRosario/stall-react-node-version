@@ -42,4 +42,9 @@
 6. resolve warning issue about use React Hook useEffect missing dependency
 
 =====
-timelapse 2:21
+
+#### implementing add to cart
+
+1. display quantity onchange handler
+2. map the stockCount
+3. work on add to cart btn

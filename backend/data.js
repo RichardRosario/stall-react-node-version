@@ -50,7 +50,7 @@ export default {
       numReviews: 10,
       desc:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, officiis!",
-      stockCount: 5,
+      stockCount: 0,
     },
   ],
 };

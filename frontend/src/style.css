@@ -205,3 +205,10 @@ span.version {
 .btn:hover {
   border: 0.1rem solid var(--mainDark);
 }
+/* out of stock */
+.inStock {
+  color: green;
+}
+.out-of-stock {
+  color: red;
+}
