@@ -11,6 +11,7 @@ export default {
       numReviews: 10,
       desc:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, officiis!",
+      stockCount: 6,
     },
     {
       id: "2",
@@ -23,6 +24,7 @@ export default {
       numReviews: 10,
       desc:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, officiis!",
+      stockCount: 6,
     },
     {
       id: "0",
@@ -35,6 +37,7 @@ export default {
       numReviews: 10,
       desc:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, officiis!",
+      stockCount: 4,
     },
     {
       id: "3",
@@ -47,6 +50,7 @@ export default {
       numReviews: 10,
       desc:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, officiis!",
+      stockCount: 5,
     },
   ],
 };

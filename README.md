@@ -40,3 +40,6 @@
 4. create reducers and action
 5. remove axios from homeScreen.js and call it from productActions
 6. resolve warning issue about use React Hook useEffect missing dependency
+
+=====
+timelapse 2:21
