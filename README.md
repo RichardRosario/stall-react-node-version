@@ -47,3 +47,5 @@
 2. display quantity onchange handler
 3. map the stockCount
 4. work on add to cart btn
+5. create cart order page,
+6. implement redux
