@@ -13,7 +13,7 @@ function CartScreen(props) {
     if (productId) {
       dispatch(addToCart(productId, qty));
     }
-  }, [dispatch]);
+  }, [dispatch, productId, qty]);
 
   return <div>this is the Cart Page</div>;
 }
