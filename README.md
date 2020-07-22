@@ -41,10 +41,9 @@
 5. remove axios from homeScreen.js and call it from productActions
 6. resolve warning issue about use React Hook useEffect missing dependency
 
-=====
-
 #### implementing add to cart
 
-1. display quantity onchange handler
-2. map the stockCount
-3. work on add to cart btn
+1. convert product page to redux
+2. display quantity onchange handler
+3. map the stockCount
+4. work on add to cart btn
