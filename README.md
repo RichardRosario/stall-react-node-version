@@ -49,3 +49,6 @@
 4. work on add to cart btn
 5. create cart order page,
 6. implement redux
+7. create add to cart action
+8. added delete items from cart
+9. add style to shopping cart page
