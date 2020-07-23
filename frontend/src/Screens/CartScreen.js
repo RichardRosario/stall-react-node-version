@@ -8,7 +8,7 @@ function CartScreen(props) {
   const { cartItems } = cart;
   const productId = props.match.params.id;
   const dispatch = useDispatch();
-  const removeFromCartHandler = (product) => {
+  const removeFromCartHandler = (productId) => {
     dispatch(removeFromCart(productId));
   };
 
@@ -21,6 +21,11 @@ function CartScreen(props) {
       dispatch(addToCart(productId, qty));
     }
   }, [dispatch, productId, qty]);
+
+  // checkout handler
+  const checkoutHandler = () => {
+    props.history.push("/signin?redirect=shipping");
+  };
 
   return (
     <div className="cart">
@@ -45,11 +50,15 @@ function CartScreen(props) {
                   </div>
                   <div>
                     Qty:
-                    <select name="" id="">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
+                    <select
+                      value={item.qty}
+                      onChange={(e) => addToCart(item.product, e.target.value)}
+                    >
+                      {[...Array(item.stockCount).keys()].map((x) => (
+                        <option key={x + 1} value={x + 1}>
+                          {x + 1}
+                        </option>
+                      ))}
                     </select>
                     <button
                       className="deleteBtn"
@@ -60,7 +69,7 @@ function CartScreen(props) {
                     </button>
                   </div>
                 </div>
-                <div className="cart-price">${item.price}</div>
+                <div className="cart-price">${item.price * item.qty}</div>
               </li>
             ))
           )}
@@ -75,6 +84,7 @@ function CartScreen(props) {
         <button
           className="btn primary"
           disabed={(cartItems.length === 0).toString()}
+          onClick={checkoutHandler}
         >
           Proceed to checkout
         </button>
