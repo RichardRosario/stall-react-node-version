@@ -1,12 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
+import { Link } from "react-router-dom";
 
 function CartScreen(props) {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
   const productId = props.match.params.id;
   const dispatch = useDispatch();
+  const removeFromCartHandler = (product) => {
+    dispatch(removeFromCart(productId));
+  };
+
   const qty = props.location.search
     ? Number(props.location.search.split("=")[1])
     : 1;
@@ -20,7 +25,7 @@ function CartScreen(props) {
   return (
     <div className="cart">
       <div className="cart-list">
-        <ul className="cart-list-contaier">
+        <ul className="cart-list-container">
           <li>
             <h3>Shopping Cart</h3>
             <div>Price</div>
@@ -29,10 +34,15 @@ function CartScreen(props) {
             <div>Cart is empty</div>
           ) : (
             cartItems.map((item) => (
-              <div key={item.qty}>
-                <img src={item.image} alt="product" />
+              <li key={item.qty}>
+                <div className="cart-image">
+                  <img src={item.image} alt="product" />
+                </div>
+
                 <div className="cart-name">
-                  <div>{item.name}</div>
+                  <div>
+                    <Link to={"/product/" + item.product}>{item.name}</Link>
+                  </div>
                   <div>
                     Qty:
                     <select name="" id="">
@@ -41,19 +51,27 @@ function CartScreen(props) {
                       <option value="3">3</option>
                       <option value="4">4</option>
                     </select>
+                    <button
+                      className="deleteBtn"
+                      type="button"
+                      onClick={() => removeFromCartHandler(item.product)}
+                    >
+                      Delete
+                    </button>
                   </div>
                 </div>
-                <div>{item.price}</div>
-              </div>
+                <div className="cart-price">${item.price}</div>
+              </li>
             ))
           )}
         </ul>
       </div>
       <div className="cart-action">
-        <h3>
+        <h3>Your Purchase Total:</h3>
+        <h4>
           Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items) : $
           {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
-        </h3>
+        </h4>
         <button
           className="btn primary"
           disabed={(cartItems.length === 0).toString()}

@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { ADD_TO_CART } from "../constants/cartConstants";
+import { ADD_TO_CART, REMOVE_FROM_CART } from "../constants/cartConstants";
 
 const addToCart = (productId, qty) => async (dispatch) => {
   try {
@@ -18,4 +18,8 @@ const addToCart = (productId, qty) => async (dispatch) => {
   } catch (error) {}
 };
 
-export { addToCart };
+const removeFromCart = (productId) => (dispatch) => {
+  dispatch({ type: REMOVE_FROM_CART, payload: productId });
+};
+
+export { addToCart, removeFromCart };
