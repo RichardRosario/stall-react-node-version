@@ -53,4 +53,14 @@
 8. added delete items from cart
 9. add style to shopping cart page
 
-## timestamp 3:03
+#### implement checkout process
+
+1. install js-cookie
+2. implement cookie on store.js and cartActions
+3. create .env to set mongoDB connections
+4. download and install mongodb
+5. npm install mongoose
+6. create mongoose connection to mongodb
+7. create userSchema and model/userModel
+8. create user routes
+9. create first user in mongodb
