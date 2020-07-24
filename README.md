@@ -53,4 +53,4 @@
 8. added delete items from cart
 9. add style to shopping cart page
 
-## timestamp 5:06
+## timestamp 3:03
