@@ -23,6 +23,7 @@ button {
   --light2: #e0d7d7;
   --mainDark: #203040;
   --mainGrey: #8d99ae;
+  --lightGrey: #ebe7e7;
   --mainSpacing: 0.1rem;
   --bigSpacing: 1rem;
   --mainTransition: all 0.3s linear;
@@ -275,6 +276,26 @@ span.version {
   align-items: center;
   height: 100%;
 }
-.form ul li {
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 32rem;
+  padding: 2rem;
+  border: 0.1rem solid var(--mainGrey);
+  border-radius: 0.5rem;
+}
+.form-container li {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.secondary {
+  background-color: var(--lightGrey);
+}
+input {
+  padding: 1rem;
+  border: 0.1rem var(--mainGrey) solid;
+  border-radius: 0.5rem;
 }

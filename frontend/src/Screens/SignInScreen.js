@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-// import { detailsUser } from "../actions/userActions";
+import signin from "../actions/userActions";
 
 function SignInScreen(props) {
   const [email, setEmail] = useState("");
@@ -16,6 +16,7 @@ function SignInScreen(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(signin(email, password));
   };
 
   return (
@@ -49,10 +50,10 @@ function SignInScreen(props) {
             </button>
           </li>
           <li>New to Stall?</li>
-          <li>
-            <Link to="/register" className="btn full-width">
-              Create your Stall account
-            </Link>
+          <li className="">
+            <button className="btn secondary">
+              <Link to="/register">Create your Stall account</Link>
+            </button>
           </li>
         </ul>
       </form>
