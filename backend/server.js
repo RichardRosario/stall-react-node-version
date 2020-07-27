@@ -18,6 +18,7 @@ mongoose
   .catch((error) => console.log(error.reason));
 
 const app = express();
+
 app.use(bodyParser.json());
 app.use("/api/users", userRoute);
 app.get("/api/products", (req, res) => {
