@@ -4,7 +4,7 @@ import {
   USER_SIGNIN_FAIL,
 } from "../constants/userConstants";
 
-function userReducer(state = {}, action) {
+function userSigninReducer(state = {}, action) {
   switch (action.type) {
     case USER_SIGNIN_REQUEST:
       return { loading: true };
@@ -18,4 +18,4 @@ function userReducer(state = {}, action) {
   }
 }
 
-export { userReducer };
+export { userSigninReducer };

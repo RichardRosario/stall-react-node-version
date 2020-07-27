@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { signin } from "../actions/userActions";
 
-function SignInScreen(props) {
+function SigninScreen(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const userSignin = useSelector((state) => state.userSignin);
@@ -53,7 +53,7 @@ function SignInScreen(props) {
                 />
               </li>
               <li>
-                <label htmlFor="password">password</label>
+                <label htmlFor="password">Password</label>
                 <input
                   type="password"
                   name="password"
@@ -80,4 +80,4 @@ function SignInScreen(props) {
     </div>
   );
 }
-export default SignInScreen;
+export default SigninScreen;
