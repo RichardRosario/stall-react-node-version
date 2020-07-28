@@ -6,9 +6,12 @@ import CartScreen from "./screens/CartScreen";
 
 import "./style.css";
 import SigninScreen from "./screens/SigninScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 import { useSelector } from "react-redux";
 
 function App() {
+  // const userRegister = useSelector((state) => state.userRegister);
+
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
 
@@ -54,10 +57,11 @@ function App() {
 
         <main className="main">
           <div className="content">
+            <Route path="/signin" component={SigninScreen} />
+            <Route path="/register" component={RegisterScreen} />
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
-            <Route path="/signin" component={SigninScreen} />
           </div>
         </main>
         <footer className="footer">All right reserve. Stall eCommerce</footer>

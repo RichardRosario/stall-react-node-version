@@ -71,4 +71,7 @@
 13. create the signin form
 14. style the signin form
 15. creat actions, constants,userReducers
-    3.48
+
+#### Registration form
+
+1. create register component
