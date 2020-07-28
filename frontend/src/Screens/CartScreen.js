@@ -86,7 +86,7 @@ function CartScreen(props) {
         <button
           className="btn primary full-width"
           disabed={(cartItems.length === 0).toString()}
-          onClick={checkoutHandler}
+          onClick={() => checkoutHandler()}
         >
           Proceed to checkout
         </button>
