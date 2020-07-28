@@ -42,7 +42,7 @@ function RegisterScreen(props) {
           <form onSubmit={submitHandler}>
             <ul className="form-container">
               <li>
-                <h3>Register</h3>
+                <h3>Create An Account?</h3>
               </li>
               <li>
                 <label htmlFor="name">Name</label>

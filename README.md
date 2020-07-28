@@ -75,3 +75,7 @@
 #### Registration form
 
 1. create register component
+2. create actions, constants, reducers
+3. implement to redux store
+4. create user route for register page
+5. create new User schema
