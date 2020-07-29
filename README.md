@@ -83,3 +83,4 @@
 #### product management
 
 1. authenticate users and admin
+2. adding product schema
