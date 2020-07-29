@@ -42,7 +42,7 @@ function RegisterScreen(props) {
           <form onSubmit={submitHandler}>
             <ul className="form-container">
               <li>
-                <h3>Create An Account?</h3>
+                <h2>Create An Account?</h2>
               </li>
               <li>
                 <label htmlFor="name">Name</label>
@@ -89,10 +89,10 @@ function RegisterScreen(props) {
                   Register
                 </button>
               </li>
-              <li>Have an account with Stall?</li>
+              <li>Already Have an account??</li>
               <li className="">
                 <button className="btn secondary">
-                  <Link to="/signin">Signin</Link>
+                  <Link to="/signin">Sign in</Link>
                 </button>
               </li>
             </ul>

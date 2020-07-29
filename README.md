@@ -79,3 +79,7 @@
 3. implement to redux store
 4. create user route for register page
 5. create new User schema
+
+#### product management
+
+1. authenticate users and admin
