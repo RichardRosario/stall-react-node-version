@@ -84,3 +84,5 @@
 
 1. authenticate users and admin
 2. adding product schema
+3. replace static data with dynamic data from mongodb
+4. create new productroutes
