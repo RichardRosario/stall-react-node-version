@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { saveProduct, listProducts } from "../actions/productActions";
 
 function ProductsScreen(props) {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
@@ -11,9 +13,11 @@ function ProductsScreen(props) {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [stockCount, setStockCount] = useState("");
+  const [rating, setRating] = useState("");
+  const [numReviews, setNumReviews] = useState("");
 
   const productList = useSelector((state) => state.productList);
-  const { error } = productList;
+  const { loading, products, error } = productList;
   const productSave = useSelector((state) => state.productSave);
   const {
     loading: loadingSave,
@@ -29,6 +33,20 @@ function ProductsScreen(props) {
     };
   }, [dispatch]);
 
+  const openModal = (product) => {
+    setModalVisible(true);
+    setId(product._id);
+    setName(product.name);
+    setImage(product.image);
+    setPrice(product.price);
+    setCategory(product.category);
+    setBrand(product.brand);
+    setDescription(product.description);
+    setStockCount(product.stockCount);
+    setRating(product.rating);
+    setNumReviews(product.numReviews);
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
@@ -41,117 +59,128 @@ function ProductsScreen(props) {
         description,
         image,
         stockCount,
+        rating,
+        numReviews,
       })
     );
   };
 
   return (
     <div className="content content-margined">
-      <div>
-        <div>
-          <Link to="/" className="breadcrumb">
-            Back to home
-          </Link>
-        </div>
-      </div>
+      <Link to="/">Back to home</Link>
+      {loading ? (
+        <div>{loadingSave}</div>
+      ) : error ? (
+        <div>{errorSave}</div>
+      ) : (
+        successSave
+      )}
       <div className="product-header">
         <h3>Products</h3>
-
-        {loadingSave ? (
-          <div>loading...</div>
-        ) : successSave ? (
-          <div>Product save successfuly!</div>
-        ) : errorSave ? (
-          <div>{error}</div>
-        ) : (
-          <div className="form">
-            <form onSubmit={submitHandler}>
-              <ul className="form-container">
-                <li>
-                  <h2>Create New Product</h2>
-                </li>
-                <li>
-                  <label htmlFor="name">Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    autoComplete="on"
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </li>
-                <li>
-                  <label htmlFor="price">Price</label>
-                  <input
-                    type="text"
-                    name="price"
-                    id="price"
-                    autoComplete="off"
-                    onChange={(e) => setPrice(e.target.value)}
-                  />
-                </li>
-                <li>
-                  <label htmlFor="brand">Brand</label>
-                  <input
-                    type="type"
-                    name="brand"
-                    id="brand"
-                    autoComplete="on"
-                    onChange={(e) => setBrand(e.target.value)}
-                  />
-                </li>
-                <li>
-                  <label htmlFor="image">Product Image</label>
-                  <input
-                    type="text"
-                    name="image"
-                    id="image"
-                    autoComplete="on"
-                    onChange={(e) => setImage(e.target.value)}
-                  />
-                </li>
-                <li>
-                  <label htmlFor="description">Description</label>
-                  <textarea
-                    type="type"
-                    name="description"
-                    id="description"
-                    autoComplete="on"
-                    onChange={(e) => setDescription(e.target.value)}
-                  />
-                </li>
-
-                <li>
-                  <label htmlFor="category">Category</label>
-                  <input
-                    type="text"
-                    name="category"
-                    id="category"
-                    autoComplete="on"
-                    onChange={(e) => setCategory(e.target.value)}
-                  />
-                </li>
-
-                <li>
-                  <label htmlFor="stockCount">Stock Count</label>
-                  <input
-                    type="text"
-                    name="stockCount"
-                    id="stockCount"
-                    autoComplete="on"
-                    onChange={(e) => setStockCount(e.target.value)}
-                  />
-                </li>
-                <li>
-                  <button type="submit" className="btn primary">
-                    Create Product
-                  </button>
-                </li>
-              </ul>
-            </form>
-          </div>
-        )}
+        <button onClick={() => openModal({})}>Create Product</button>
       </div>
+      {modalVisible && (
+        <div className="form">
+          <form onSubmit={submitHandler}>
+            <ul className="form-container">
+              <li>
+                <h2>Create New Product</h2>
+              </li>
+              <li>
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  value={name}
+                  autoComplete="on"
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </li>
+              <li>
+                <label htmlFor="price">Price</label>
+                <input
+                  type="text"
+                  name="price"
+                  id="price"
+                  value={price}
+                  autoComplete="off"
+                  onChange={(e) => setPrice(e.target.value)}
+                />
+              </li>
+              <li>
+                <label htmlFor="brand">Brand</label>
+                <input
+                  type="type"
+                  name="brand"
+                  id="brand"
+                  value={brand}
+                  autoComplete="on"
+                  onChange={(e) => setBrand(e.target.value)}
+                />
+              </li>
+              <li>
+                <label htmlFor="image">Product Image</label>
+                <input
+                  type="text"
+                  name="image"
+                  id="image"
+                  value={image}
+                  autoComplete="on"
+                  onChange={(e) => setImage(e.target.value)}
+                />
+              </li>
+              <li>
+                <label htmlFor="description">Description</label>
+                <textarea
+                  type="type"
+                  name="description"
+                  id="description"
+                  value={description}
+                  autoComplete="on"
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+              </li>
+
+              <li>
+                <label htmlFor="category">Category</label>
+                <input
+                  type="text"
+                  name="category"
+                  id="category"
+                  value={category}
+                  autoComplete="on"
+                  onChange={(e) => setCategory(e.target.value)}
+                />
+              </li>
+
+              <li>
+                <label htmlFor="stockCount">Stock Count</label>
+                <input
+                  type="text"
+                  name="stockCount"
+                  id="stockCount"
+                  value={stockCount}
+                  autoComplete="on"
+                  onChange={(e) => setStockCount(e.target.value)}
+                />
+              </li>
+              <li>
+                <button type="submit" className="btn primary">
+                  {id ? "Update" : "Create Product"}
+                </button>
+                <button
+                  onClick={() => setModalVisible(false)}
+                  type="button"
+                  className="btn secondary"
+                >
+                  Back
+                </button>
+              </li>
+            </ul>
+          </form>
+        </div>
+      )}
       <div className="product-list">
         <table>
           <thead>
@@ -165,17 +194,19 @@ function ProductsScreen(props) {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              {/* <th>{product._id}</th>
-              <th>{product.name}</th>
-              <th>{product.price}</th>
-              <th>{product.category}</th>
-              <th>{product.brand}</th> */}
-              <th>
-                <button>Edit</button>
-                <button>Delete</button>
-              </th>
-            </tr>
+            {products.map((product) => (
+              <tr>
+                <td>{product._id}</td>
+                <td>{product.name}</td>
+                <td>{product.price}</td>
+                <td>{product.category}</td>
+                <td>{product.brand}</td>
+                <td>
+                  <button onClick={() => openModal(product)}>Edit</button>
+                  <button>Delete</button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
