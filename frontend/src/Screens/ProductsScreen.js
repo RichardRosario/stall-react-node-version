@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { saveProduct, listProducts } from "../actions/productActions";
+import {
+  saveProduct,
+  listProducts,
+  deleteProduct,
+} from "../actions/productActions";
 
 function ProductsScreen(props) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -24,14 +28,21 @@ function ProductsScreen(props) {
     success: successSave,
     error: errorSave,
   } = productSave;
+
+  const productDelete = useSelector((state) => state.productDelete);
+  const { success } = productDelete;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (successSave) {
+      setModalVisible(false);
+    }
     dispatch(listProducts());
     return () => {
       // cleanup
     };
-  }, [dispatch]);
+  }, [successSave]);
 
   const openModal = (product) => {
     setModalVisible(true);
@@ -63,6 +74,10 @@ function ProductsScreen(props) {
         numReviews,
       })
     );
+  };
+
+  const deleteHandler = (product) => {
+    dispatch(deleteProduct(product._id));
   };
 
   return (
@@ -195,7 +210,7 @@ function ProductsScreen(props) {
           </thead>
           <tbody>
             {products.map((product) => (
-              <tr>
+              <tr key={product._id}>
                 <td>{product._id}</td>
                 <td>{product.name}</td>
                 <td>{product.price}</td>
@@ -203,7 +218,7 @@ function ProductsScreen(props) {
                 <td>{product.brand}</td>
                 <td>
                   <button onClick={() => openModal(product)}>Edit</button>
-                  <button>Delete</button>
+                  <button onClick={() => deleteHandler(product)}>Delete</button>
                 </td>
               </tr>
             ))}

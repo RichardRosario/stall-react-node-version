@@ -31,4 +31,39 @@ router.post("/", async (req, res) => {
   return res.status(500).send({ msg: "Error in creating product." });
 });
 
+// product update
+router.put("/:id", async (req, res) => {
+  const productId = req.params.id;
+  const product = await Product.findById({ _id: productId });
+  if (product) {
+    product.name = req.body.name;
+    product.category = req.body.category;
+    product.price = req.body.price;
+    product.brand = req.body.brand;
+    product.image = req.body.image;
+    product.description = req.body.description;
+    product.rating = req.body.rating;
+    product.numReviews = req.body.numReviews;
+    product.stockCount = req.body.stockCount;
+
+    const updateProduct = await product.save();
+    if (updateProduct) {
+      return res
+        .status(200)
+        .send({ msg: "New product update", data: updateProduct });
+    }
+  }
+  return res.status(500).send({ msg: "Error in updating product." });
+});
+
+router.delete("/:id", async (req, res) => {
+  const deletedProduct = await Product.findById(req.params.id);
+  if (deletedProduct) {
+    await deletedProduct.remove();
+    res.send({ message: "Product successfully deleted" });
+  } else {
+    res.send({ message: "Error in deleting product" });
+  }
+});
+
 export default router;

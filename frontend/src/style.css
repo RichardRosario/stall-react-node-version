@@ -293,6 +293,7 @@ span.version {
 }
 .secondary {
   background-color: var(--lightGrey);
+  margin-top: var(--bigSpacing);
 }
 input {
   padding: 1rem;
