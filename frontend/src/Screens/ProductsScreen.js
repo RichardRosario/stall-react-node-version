@@ -13,7 +13,7 @@ function ProductsScreen(props) {
   const [stockCount, setStockCount] = useState("");
 
   const productList = useSelector((state) => state.productList);
-  const { loading, product, error } = productList;
+  const { error } = productList;
   const productSave = useSelector((state) => state.productSave);
   const {
     loading: loadingSave,
@@ -61,7 +61,7 @@ function ProductsScreen(props) {
         ) : successSave ? (
           <div>Product save successfuly!</div>
         ) : errorSave ? (
-          <div>{errorSave}</div>
+          <div>{error}</div>
         ) : (
           <div className="form">
             <form onSubmit={submitHandler}>
@@ -164,19 +164,17 @@ function ProductsScreen(props) {
             </tr>
           </thead>
           <tbody>
-            {productSave.map((product) => (
-              <tr>
-                <th>{product._id}</th>
-                <th>{product.name}</th>
-                <th>{product.price}</th>
-                <th>{product.category}</th>
-                <th>{product.brand}</th>
-                <th>
-                  <button>Edit</button>
-                  <button>Delete</button>
-                </th>
-              </tr>
-            ))}
+            <tr>
+              {/* <th>{product._id}</th>
+              <th>{product.name}</th>
+              <th>{product.price}</th>
+              <th>{product.category}</th>
+              <th>{product.brand}</th> */}
+              <th>
+                <button>Edit</button>
+                <button>Delete</button>
+              </th>
+            </tr>
           </tbody>
         </table>
       </div>

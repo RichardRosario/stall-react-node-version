@@ -9,6 +9,7 @@ router.get("/", async (req, res) => {
   res.send(products);
 });
 
+// api to create a product
 router.post("/", async (req, res) => {
   const product = new Product({
     name: req.body.name,

@@ -9,18 +9,17 @@ function ProductScreen(props) {
   const [qty, setQty] = useState(1);
 
   const dispatch = useDispatch();
-  const prodId = props.match.params.id;
 
   useEffect(() => {
-    dispatch(detailsProduct(prodId));
+    dispatch(detailsProduct(props.match.params.id));
     return () => {
       // cleanup
     };
-  }, [dispatch, prodId]);
+  }, [dispatch, props.match.params.id]);
 
   // handle add to cart
   const handleAddToCart = () => {
-    props.history.push("/cart/" + prodId + "?qty=" + qty);
+    props.history.push("/cart/" + props.match.params.id + "?qty=" + qty);
   };
 
   return (
