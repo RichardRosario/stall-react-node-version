@@ -24,7 +24,9 @@ router.post("/", async (req, res) => {
   });
   const newProduct = await product.save();
   if (newProduct) {
-    res.status(201).send({ msg: "New product created", data: newProduct });
+    return res
+      .status(201)
+      .send({ msg: "New product created", data: newProduct });
   }
   return res.status(500).send({ msg: "Error in creating product." });
 });

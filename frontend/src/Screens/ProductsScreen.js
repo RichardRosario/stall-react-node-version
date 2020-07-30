@@ -33,6 +33,7 @@ function ProductsScreen(props) {
     e.preventDefault();
     dispatch(
       saveProduct({
+        _id: id,
         name,
         price,
         category,
@@ -55,7 +56,7 @@ function ProductsScreen(props) {
       </div>
       <div className="product-header">
         <h3>Products</h3>
-        <button>Create Product</button>
+
         {loadingSave ? (
           <div>loading...</div>
         ) : successSave ? (
