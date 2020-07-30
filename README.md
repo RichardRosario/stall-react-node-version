@@ -4,7 +4,7 @@
 
 ### Stall eCommerce is an open source simple full-feature ecommerce created in reactjs and nodejs. This will be consistently improved in the future to allow other developers to build modules and extensions.
 
-### Tasks to cover:
+### Tasks to covered:
 
 #### Create React Products Component
 
@@ -87,3 +87,4 @@
 3. replace static data with dynamic data from mongodb
 4. create new productroutes
 5. implement edit products functionality for admin users
+6. added ability for admin user to delete products

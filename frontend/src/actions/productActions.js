@@ -67,6 +67,7 @@ const detailsProduct = (productId) => async (dispatch) => {
 
 const deleteProduct = (productId) => async (dispatch, getState) => {
   try {
+    // get the admin user token
     const {
       userSignin: { userInfo },
     } = getState();

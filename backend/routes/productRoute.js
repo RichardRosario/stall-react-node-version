@@ -56,6 +56,7 @@ router.put("/:id", async (req, res) => {
   return res.status(500).send({ msg: "Error in updating product." });
 });
 
+// api to delete product
 router.delete("/:id", async (req, res) => {
   const deletedProduct = await Product.findById(req.params.id);
   if (deletedProduct) {
