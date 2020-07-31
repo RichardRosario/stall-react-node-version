@@ -210,10 +210,18 @@ span.version {
   background-color: #f5a819;
   margin: 0.1rem;
 }
+.btn-green {
+  background-color: rgb(16, 207, 16);
+  padding: var(--bigSpacing);
+  cursor: pointer;
+  border: solid var(--lightGrey) 0.1rem;
+  border-radius: 0.5rem;
+}
 .btn-delete {
   background-color: var(--primaryColor);
   padding: var(--bigSpacing);
   cursor: pointer;
+  color: var(--light2);
   border: solid var(--light2) 0.1rem;
   border-radius: 0.5rem;
 }
@@ -307,4 +315,24 @@ input {
   padding: 1rem;
   border: 0.1rem var(--mainGrey) solid;
   border-radius: 0.5rem;
+}
+
+/* products */
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.content-margined {
+  margin: 1rem;
+}
+table {
+  width: 100%;
+}
+th {
+  text-align: left;
+}
+tbody > tr:nth-child(odd) {
+  background-color: var(--lightGrey);
 }

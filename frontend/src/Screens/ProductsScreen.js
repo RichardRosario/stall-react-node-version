@@ -89,7 +89,7 @@ function ProductsScreen(props) {
       <Link to="/">Back to home</Link>
       <div className="product-header">
         <h3>Products</h3>
-        <button className="btn" onClick={() => openModal({})}>
+        <button className="btn-green" onClick={() => openModal({})}>
           Create Product
         </button>
       </div>
@@ -203,7 +203,6 @@ function ProductsScreen(props) {
         <table>
           <thead>
             <tr>
-              <th>ID</th>
               <th>Name</th>
               <th>Price</th>
               <th>Category</th>
@@ -214,7 +213,6 @@ function ProductsScreen(props) {
           <tbody>
             {products.map((product) => (
               <tr key={product._id}>
-                <td>{product._id}</td>
                 <td>{product.name}</td>
                 <td>{product.price}</td>
                 <td>{product.category}</td>

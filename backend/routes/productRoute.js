@@ -1,5 +1,6 @@
 import express from "express";
 import Product from "../models/productModel";
+import { isAdmin, isAuth } from "../utils";
 
 const router = express.Router();
 
@@ -10,7 +11,7 @@ router.get("/", async (req, res) => {
 });
 
 // api to create a product
-router.post("/", async (req, res) => {
+router.post("/", isAdmin, isAuth, async (req, res) => {
   const product = new Product({
     name: req.body.name,
     category: req.body.category,
@@ -32,7 +33,7 @@ router.post("/", async (req, res) => {
 });
 
 // product update
-router.put("/:id", async (req, res) => {
+router.put("/:id", isAdmin, isAuth, async (req, res) => {
   const productId = req.params.id;
   const product = await Product.findById({ _id: productId });
   if (product) {
@@ -55,7 +56,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // api to delete product
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", isAdmin, isAuth, async (req, res) => {
   const deletedProduct = await Product.findById(req.params.id);
   if (deletedProduct) {
     await deletedProduct.remove();
