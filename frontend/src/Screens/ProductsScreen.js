@@ -30,7 +30,11 @@ function ProductsScreen(props) {
   } = productSave;
 
   const productDelete = useSelector((state) => state.productDelete);
-  const { success } = productDelete;
+  const {
+    loading: loadingDelete,
+    success: successDelete,
+    error: errorDelete,
+  } = productDelete;
 
   const dispatch = useDispatch();
 
@@ -42,7 +46,7 @@ function ProductsScreen(props) {
     return () => {
       // cleanup
     };
-  }, [successSave]);
+  }, [dispatch, successSave, successDelete]);
 
   const openModal = (product) => {
     setModalVisible(true);
@@ -83,16 +87,11 @@ function ProductsScreen(props) {
   return (
     <div className="content content-margined">
       <Link to="/">Back to home</Link>
-      {loading ? (
-        <div>{loadingSave}</div>
-      ) : error ? (
-        <div>{errorSave}</div>
-      ) : (
-        successSave
-      )}
       <div className="product-header">
         <h3>Products</h3>
-        <button onClick={() => openModal({})}>Create Product</button>
+        <button className="btn" onClick={() => openModal({})}>
+          Create Product
+        </button>
       </div>
       {modalVisible && (
         <div className="form">
@@ -100,6 +99,10 @@ function ProductsScreen(props) {
             <ul className="form-container">
               <li>
                 <h2>Create New Product</h2>
+              </li>
+              <li>
+                {loadingSave && <div>loding...</div>}
+                {errorSave && <div>{errorSave}</div>}
               </li>
               <li>
                 <label htmlFor="name">Name</label>
@@ -217,8 +220,15 @@ function ProductsScreen(props) {
                 <td>{product.category}</td>
                 <td>{product.brand}</td>
                 <td>
-                  <button onClick={() => openModal(product)}>Edit</button>
-                  <button onClick={() => deleteHandler(product)}>Delete</button>
+                  <button className="btn" onClick={() => openModal(product)}>
+                    Edit
+                  </button>
+                  <button
+                    className="btn-delete"
+                    onClick={() => deleteHandler(product)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}

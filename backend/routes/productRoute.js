@@ -42,8 +42,6 @@ router.put("/:id", async (req, res) => {
     product.brand = req.body.brand;
     product.image = req.body.image;
     product.description = req.body.description;
-    product.rating = req.body.rating;
-    product.numReviews = req.body.numReviews;
     product.stockCount = req.body.stockCount;
 
     const updateProduct = await product.save();
