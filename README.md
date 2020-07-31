@@ -88,3 +88,4 @@
 4. create new productroutes
 5. implement edit products functionality for admin users
 6. added ability for admin user to delete products
+7. restricted add,edit,delete products to admin users for security
