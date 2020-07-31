@@ -11,8 +11,6 @@ import { useSelector } from "react-redux";
 import ProductsScreen from "./screens/ProductsScreen";
 
 function App() {
-  // const userRegister = useSelector((state) => state.userRegister);
-
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
 
