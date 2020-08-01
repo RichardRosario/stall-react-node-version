@@ -89,3 +89,4 @@
 5. implement edit products functionality for admin users
 6. added ability for admin user to delete products
 7. restricted add,edit,delete products to admin users for security
+8. added redirect users to the process of buying stuff
