@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { saveShipping } from "../actions/cartActions";
+import CheckoutProcess from "../components/CheckoutProcess";
 
 function ShippingScreen(props) {
   const [address, setAddress] = useState("");
@@ -13,16 +13,12 @@ function ShippingScreen(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(saveShipping(address, city, postalCode, country));
+    props.history.push("payment");
   };
 
   return (
     <div>
-      <div>
-        <Link to="/" className="breadcrumb">
-          Back to home
-        </Link>
-      </div>
-
+      <CheckoutProcess step1 step2 />
       <div className="form">
         <form onSubmit={submitHandler}>
           <ul className="form-container">

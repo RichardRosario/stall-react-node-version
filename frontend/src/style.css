@@ -336,3 +336,20 @@ th {
 tbody > tr:nth-child(odd) {
   background-color: var(--lightGrey);
 }
+
+/* checkout process*/
+.checkout-steps {
+  display: flex;
+  justify-content: space-between;
+  width: 40rem;
+  margin: 1rem auto;
+}
+.checkout-steps > div {
+  border-top: 0.3rem solid var(--mainGrey);
+  flex: 1 1;
+  padding-top: 1rem;
+}
+.checkout-steps > div.active {
+  border-top: 0.3rem solid var(--secondPrimary);
+  color: var(--secondPrimary);
+}
