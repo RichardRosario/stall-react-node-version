@@ -34,6 +34,6 @@ app.use("/api/products", productRoute);
 //   else res.status(404).send({ msg: "Product not found." });
 // });
 
-app.listen(5000, () => {
-  console.log("Server start at http://localhost:5000");
+app.listen(5050, () => {
+  console.log("Server start at http://localhost:5050");
 });
