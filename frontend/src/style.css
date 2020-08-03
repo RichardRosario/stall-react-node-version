@@ -376,7 +376,7 @@ tbody > tr:nth-child(odd) {
 .placeorder-info > div {
   border: solid 0.1rem var(--mainGrey);
   border-radius: 0.5rem;
-  background-color: #ebe7e71c;
+  background-color: #ebe7e71f;
   padding: 1rem;
   margin-bottom: 1rem;
 }

@@ -92,3 +92,7 @@
 8. added redirect users to the process of buying stuff
 9. created shipping page,reducer,actions,route
 10. add checkout process/steps
+11. added payment options page
+12. added shipping page
+13. created place order page
+14. created order summary page
