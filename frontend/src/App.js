@@ -11,6 +11,7 @@ import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
 import paymentScreen from "./screens/PaymentScreen";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 
 function App() {
   const userSignin = useSelector((state) => state.userSignin);
@@ -58,6 +59,7 @@ function App() {
 
         <main className="main">
           <div className="content">
+            <Route path="/placeorder" component={PlaceOrderScreen} />
             <Route path="/payment" component={paymentScreen} />
             <Route path="/shipping" component={ShippingScreen} />
             <Route path="/products" component={ProductsScreen} />

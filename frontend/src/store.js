@@ -19,7 +19,7 @@ const userInfo = Cookie.getJSON("userInfo") || null;
 const registerInfo = Cookie.getJSON("registerInfo") || null;
 
 const initialState = {
-  cart: { cartItems },
+  cart: { cartItems, shipping: {}, payment: {} },
   userSignin: { userInfo },
   userRegister: { registerInfo },
 };
