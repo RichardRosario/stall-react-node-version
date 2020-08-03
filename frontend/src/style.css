@@ -350,8 +350,9 @@ tbody > tr:nth-child(odd) {
   padding-top: 1rem;
 }
 .checkout-steps > div.active {
-  border-top: 0.3rem solid var(--secondPrimary);
-  color: var(--secondPrimary);
+  border-top: 0.3rem solid #00c11f;
+  color: #067b0f;
+  font-weight: bold;
 }
 /* placeorder */
 .placeorder {
@@ -359,4 +360,39 @@ tbody > tr:nth-child(odd) {
   flex-grow: wrap;
   padding: 1rem;
   justify-content: space-between;
+}
+.placeorder-info {
+  flex: 3 1 60rem;
+  margin-right: 1rem;
+}
+.placeorder-action {
+  flex: 1 1 20rem;
+  border: solid 0.1rem var(--mainGrey);
+  border-radius: 0.5rem;
+  background-color: #f4eded85;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.placeorder-info > div {
+  border: solid 0.1rem var(--mainGrey);
+  border-radius: 0.5rem;
+  background-color: #ebe7e71c;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.placeorder-info > div:first-child {
+  margin-top: 0;
+}
+.placeorder-action > ul {
+  padding: 0;
+  list-style: none;
+}
+.placeorder-action > ul > li {
+  display: flex;
+  justify-content: space-between;
+}
+.placeorder-action > ul > li:last-child {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primaryColor);
 }
